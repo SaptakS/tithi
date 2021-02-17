@@ -1,0 +1,20 @@
+{%- import "macros/_event.html" as event -%}
+{%- macro grid(number_of_days, day_of_first, month, year) -%}
+
+  <div class="month-container">
+    {# Offset days before the 1st date of month #}
+    {%- for i in range(start=1, end=day_of_first) -%}
+      <div class="date-container empty"></div>
+    {% endfor %}
+
+    {# Loops over all days in a month #}
+    {%- for day in range(start=1, end=number_of_days+1) -%}
+      {%- set date = year ~ "-" ~ month ~ "-" ~ day %}
+      <div class="date-container">
+        <p>{{ date | date(format="%Y-%m-%d") }}</p>
+        {{ event::container(date=date) }}
+      </div>
+    {%- endfor -%}
+  </div>
+
+{%- endmacro grid -%}

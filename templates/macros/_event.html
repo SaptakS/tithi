@@ -1,0 +1,13 @@
+{%- macro container(date) -%}
+  {%- for page in section.pages -%}
+    {%- set content_date = page.date | date(format="%Y-%m-%d") -%}
+    {%- set date = date | date(format="%Y-%m-%d") -%}
+    {%- if content_date == date -%}
+      <a href="{{ page.permalink | safe }}">
+        <p class="event-title">
+          {{ page.title }}
+        </p>
+      </a>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endmacro container -%}

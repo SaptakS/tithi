@@ -1,0 +1,18 @@
+{%- import "macros/_calendar.html" as calendar -%}
+{%- macro monthly_date(month, year) -%}
+
+  {# Contains number_of_days in a month #}
+  {%- set start_month = month - 1 -%}
+  {%- set number_of_days = section.extra.number_of_days[start_month] -%}
+  {%- set first_date = year ~ "-" ~ month ~ "-" ~ "01" %}
+
+  <h3>{{ first_date | date(format="%B %Y") }}</h3>
+
+  {% include "includes/_weekdays.html" %}
+  
+  {# Calculate which day is 1st day of month #}
+  {%- set day_of_first = first_date | date(format="%u") | int -%}
+
+  {{ calendar::grid(number_of_days=number_of_days, day_of_first=day_of_first, month=month, year=year) }}
+
+{%- endmacro monthly_date -%}
