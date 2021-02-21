@@ -4,7 +4,6 @@
 
 Tithi creates a calendar with tasks/events/contents based completely on the date frontmatter in a content markdown. It doesn't need any other information. Just create a new content with a particular date and time, and Tithi will create a month view calendar for that particular month.
 
-TODO:
 In case the events range over multiple months, it provides a month selector which allows you to select months ranging from the first month that has an event to the last month that has an event
 
 ## Usage
@@ -41,7 +40,7 @@ For this, you will need to develop the project locally. Following are the steps 
 
 ### Different folders in the project
 
-- **content** - This contains all the markdown files that represent the events/tasks for particular dates. You need to create markdowns with proper dates (YYYY-MM-DD or RFC3339 e.g. 2002-10-02T15:00:00Z). If date is mentioned in YYYY-MM-DD format, the time shown in the event details on clicking is always 12:00 am. The title of the content is shown on the event summary, and rest of the content (along with time) is shown on clicking. Ensure that the posts that you want to be shown in the calendar has `show_in_calendar = true`
+- **content** - This contains all the markdown files that represent the events/tasks for particular dates. You need to create markdowns with proper dates (YYYY-MM-DD or RFC3339 e.g. 2002-10-02T15:00:00Z). If date is mentioned in YYYY-MM-DD format, the time shown in the event details on clicking is always 12:00 am. The title of the content is shown on the event summary, and rest of the content (along with time) is shown on clicking. Ensure that the posts that you want to be shown in the calendar has `show_in_calendar = true`.
 
 - **sass** - Contains all the SASS stylesheets. The `grids` module contains the monthly calendar grid layout logic. Rest of the modules are specific to what the name suggests
 

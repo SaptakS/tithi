@@ -1,0 +1,37 @@
+.dropbtn {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.dropdown {
+  position: relative;
+  width: 250px;
+  margin: auto;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $light_gray;
+  box-shadow: 0px 8px 16px 0px $dark_gray;
+  z-index: 1;
+
+  a {
+    color: $black;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+
+    &:hover, &:focus {background-color: $gray}
+  }
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn,
+.dropdown:focus-within .dropbtn {
+  background-color: $light_gray;
+}

@@ -8,13 +8,9 @@
   
   {# Calculate which day is 1st day of month #}
   {%- set day_of_first = first_date | date(format="%u") | int -%}
+    <div class="month" id="cal-{{ first_date | date(format="%Y-%m") }}">
+      {% include "includes/_weekdays.html" %}
 
-  <section class="calendar">
-
-    <h3 class="title">{{ first_date | date(format="%B %Y") }}</h3>
-    {% include "includes/_weekdays.html" %}
-
-    {{ calendar::grid(number_of_days=number_of_days, day_of_first=day_of_first, month=month, year=year) }}
-  </section>
-
+      {{ calendar::grid(number_of_days=number_of_days, day_of_first=day_of_first, month=month, year=year) }}
+    </div>
 {%- endmacro monthly_date -%}

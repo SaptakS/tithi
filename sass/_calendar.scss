@@ -28,19 +28,28 @@
     }
   }
 
-  .weekday-label-container {
-    @include weekly-grid;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    border-top: 1px solid $gray;
+  .month {
+    display: none;
+    margin-top: 1rem;
 
-    div {
-        padding: 1rem;
+    &:first-of-type {
+      display: block;
     }
-  }
 
-  .month-container {
-    @include weekly-grid;
-    grid-auto-rows: 160px;
+    .weekday-label-container {
+      @include weekly-grid;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      border-top: 1px solid $gray;
+
+      div {
+          padding: 1rem;
+      }
+    }
+
+    .month-container {
+      @include weekly-grid;
+      grid-auto-rows: 160px;
+    }
   }
 }

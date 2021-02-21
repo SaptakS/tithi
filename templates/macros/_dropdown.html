@@ -1,0 +1,15 @@
+{%- macro month_dropdown(first_date, year_months) -%}
+<div class="dropdown" tabindex="0">
+  <h3 class="title dropbtn" id="selected_date">
+    {{ first_date | date(format="%B %Y") }}
+  </h3>
+  <div class="dropdown-content">
+    {%- for year_month in year_months -%}
+      {%- set date_ = year_month ~ "-" ~ "01" %}
+      <a href="#" class="month-year" data-month="cal-{{ date_ | date(format="%Y-%m") }}">
+        {{ date_ | date(format="%B %Y") }}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{%- endmacro month_dropdown -%}

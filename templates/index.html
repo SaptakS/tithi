@@ -1,17 +1,35 @@
 {%- extends "base.html" -%}
 
 {%- import "macros/_month.html" as month -%}
+{%- import "macros/_dropdown.html" as dropdown -%}
 
 {%- block content -%}
   {# Get calendar events filtered by show_in_calendar #}
-  {%- set events = section.pages | filter(attribute="extra.show_in_calendar", value=true) -%}
+  {%- set events = section.pages | filter(attribute="extra.show_in_calendar", value=true) | unique(attribute="date") | reverse  -%}
 
-  {# Contains the Year part for the first content #}
-  {%- set start_year = events[0].date | date(format="%Y") -%}
+  {# Contains a list of unique YYYY MM combination to get all months #}
+  {% set_global year_months = [] %}
+  {% for event in events %}
+    {% set year_month = event.date | date(format="%Y-%m") -%}
+    {% if year_month not in year_months %}
+      {% set_global year_months = year_months | concat(with=year_month) %}
+    {% endif %}
+  {% endfor %}
 
-  {# Contains month index to the first content #}
-  {%- set start_month = events[0].date | date(format="%m") | int -%}
 
-  {{ month::monthly_date(month=start_month, year=start_year) }}
+  {# Show the month and year with dropdown selector #}
+  {%- set first_date = year_months[0] ~ "-" ~ "01" %}
+
+  <section class="calendar">
+    {{ dropdown::month_dropdown(first_date=first_date, year_months=year_months) }}
+    <div class="calendar-container">
+      {% for year_month in year_months -%}
+        {%- set year_index = year_month | split(pat="-") | first | int -%}
+        {%- set month_index = year_month | split(pat="-") | last | int %}
+        {{ month::monthly_date(month=month_index, year=year_index) }}
+      {% endfor %}
+    </div>
+
+  </section>
 
 {%- endblock content -%}
