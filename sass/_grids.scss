@@ -1,0 +1,15 @@
+@mixin weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  div {
+    border-right: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  div:nth-of-type(7n+7) {
+    border-right: 0;
+  }
+}

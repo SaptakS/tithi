@@ -11,7 +11,7 @@
     {%- for day in range(start=1, end=number_of_days+1) -%}
       {%- set date = year ~ "-" ~ month ~ "-" ~ day %}
       <div class="date-container">
-        <p>{{ date | date(format="%Y-%m-%d") }}</p>
+        <p class="date">{{ date | date(format="%e") }}</p>
         {{ event::container(date=date) }}
       </div>
     {%- endfor -%}

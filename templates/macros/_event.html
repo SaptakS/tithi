@@ -3,11 +3,15 @@
     {%- set content_date = page.date | date(format="%Y-%m-%d") -%}
     {%- set date = date | date(format="%Y-%m-%d") -%}
     {%- if content_date == date -%}
-      <a href="{{ page.permalink | safe }}">
-        <p class="event-title">
+      <details class="event">
+        <summary class="event-summary">
           {{ page.title }}
-        </p>
-      </a>
+        </summary>
+        <section>
+          {{ page.content | safe}}
+          <p>{{ page.date | date(format="%I:%M %P")}}</p>
+        </section>
+      </details>
     {%- endif -%}
   {%- endfor -%}
 {%- endmacro container -%}

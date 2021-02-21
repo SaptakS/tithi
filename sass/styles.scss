@@ -1,29 +1,11 @@
-div {
-    padding: 0.5rem;
-    text-align: center;
-}
+@import 'colors';
+@import 'fonts';
+@import 'typography';
+@import 'grids';
+@import 'calendar';
+@import 'events';
 
-.weekday-label-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-
-    div {
-        border: 2px solid black;
-    }
-}
-
-.month-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-
-    .date-container {
-        border: 1px solid grey;
-        justify-items: center;
-        align-items: center;
-    }
-}
-
-p.event-title {
-    background: yellow;
+.container {
+    max-width: 100rem;
+    margin: 2.5rem auto;
 }
