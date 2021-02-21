@@ -1,5 +1,7 @@
 {%- macro container(date) -%}
-  {%- for page in section.pages -%}
+  {# Get calendar events filtered by show_in_calendar #}
+  {%- set events = section.pages | filter(attribute="extra.show_in_calendar", value=true) -%}
+  {%- for page in events -%}
     {%- set content_date = page.date | date(format="%Y-%m-%d") -%}
     {%- set date = date | date(format="%Y-%m-%d") -%}
     {%- if content_date == date -%}

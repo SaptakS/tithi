@@ -11,7 +11,7 @@ In case the events range over multiple months, it provides a month selector whic
 
 - Install zola using the following guide: https://www.getzola.org/documentation/getting-started/installation/
 - Download or clone this repository
-- Replace the example markdown files in the `content` folder with appropriate markdown file that you want to show in your calendar
+- Replace the example markdown files in the `content` folder with appropriate markdown file that you want to show in your calendar. Ensure that the posts that you want to be shown in the calendar has `show_in_calendar = true`
 - In `config.toml`, mention the `base_url` where you will host the calendar. This is used to build paths for static assets by zola
 - Build the project: `zola build`
 - You should now have a `public` folder. You can deploy this folder, wherever you want to host your server.
@@ -37,11 +37,11 @@ For this, you will need to develop the project locally. Following are the steps 
 - Install zola using the following guide: https://www.getzola.org/documentation/getting-started/installation/
 - Clone this repository: `git clone git@github.com:SaptakS/tithi.git`
 - Serve the project locally: `zola serve`
-- Visit: `[http://localhost:1111](http://localhost:1111)`
+- Visit: `[http://127.0.0.1:1111/](http://127.0.0.1:1111/)`
 
 ### Different folders in the project
 
-- **content** - This contains all the markdown files that represent the events/tasks for particular dates. You need to create markdowns with proper dates (YYYY-MM-DD or RFC3339 e.g. 2002-10-02T15:00:00Z). If date is mentioned in YYYY-MM-DD format, the time shown in the event details on clicking is always 12:00 am. The title of the content is shown on the event summary, and rest of the content (along with time) is shown on clicking
+- **content** - This contains all the markdown files that represent the events/tasks for particular dates. You need to create markdowns with proper dates (YYYY-MM-DD or RFC3339 e.g. 2002-10-02T15:00:00Z). If date is mentioned in YYYY-MM-DD format, the time shown in the event details on clicking is always 12:00 am. The title of the content is shown on the event summary, and rest of the content (along with time) is shown on clicking. Ensure that the posts that you want to be shown in the calendar has `show_in_calendar = true`
 
 - **sass** - Contains all the SASS stylesheets. The `grids` module contains the monthly calendar grid layout logic. Rest of the modules are specific to what the name suggests
 

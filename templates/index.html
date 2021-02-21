@@ -3,12 +3,14 @@
 {%- import "macros/_month.html" as month -%}
 
 {%- block content -%}
+  {# Get calendar events filtered by show_in_calendar #}
+  {%- set events = section.pages | filter(attribute="extra.show_in_calendar", value=true) -%}
 
   {# Contains the Year part for the first content #}
-  {%- set start_year = section.pages[0].date | date(format="%Y") -%}
+  {%- set start_year = events[0].date | date(format="%Y") -%}
 
   {# Contains month index to the first content #}
-  {%- set start_month = section.pages[0].date | date(format="%m") | int -%}
+  {%- set start_month = events[0].date | date(format="%m") | int -%}
 
   {{ month::monthly_date(month=start_month, year=start_year) }}
 
