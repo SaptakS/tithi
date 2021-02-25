@@ -1,11 +1,16 @@
 .dropbtn {
   cursor: pointer;
   margin-bottom: 0;
+
+  &::after {
+    content: url('/chevron-down.svg');
+    margin-left: 0.25rem;
+  }
 }
 
 .dropdown {
   position: relative;
-  width: 250px;
+  width: 300px;
   margin: auto;
 }
 
