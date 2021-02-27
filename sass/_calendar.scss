@@ -1,36 +1,7 @@
 .calendar {
-  box-shadow: 1px 16px 36px $gray;
-  border-radius: 10px;
-  overflow: hidden;
-
-  .title {
-    text-align: center;
-    padding: 1.5rem;
-  }
-
-  .date-container {
-
-    &.empty {
-      background: repeating-linear-gradient(
-        -45deg,
-        $white,
-        $white 10px,
-        $light_gray 10px,
-        $light_gray 20px
-      );
-    }
-
-    .date {
-      margin-top: 0.25rem;
-      margin-bottom: 0.5rem;
-      margin-right: 0.5rem;
-      text-align: right;
-    }
-  }
 
   .month {
     display: none;
-    margin-top: 1rem;
 
     &:first-of-type {
       display: block;
@@ -38,13 +9,6 @@
 
     .weekday-label-container {
       @include weekly-grid;
-      text-transform: uppercase;
-      font-size: 1.5rem;
-      border-top: 1px solid $gray;
-
-      div {
-          padding: 1rem;
-      }
     }
 
     .month-container {

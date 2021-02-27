@@ -1,17 +1,11 @@
 # The URL the site will be built for
-base_url = "localhost"
+base_url = "https://example.com"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
-
-# The default language; used in feeds.
-default_language = "en"
-
-# The site theme to use.
-theme = "tithi-basic"
 
 [markdown]
 # Whether to do syntax highlighting

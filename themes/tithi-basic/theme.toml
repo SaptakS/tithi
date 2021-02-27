@@ -1,0 +1,13 @@
+name = "Basic Tithi Theme"
+description = "The basic theme for tithi, the static calendar generator"
+
+# Any variable there can be overridden in the end user `config.toml`
+# You don't need to prefix variables by the theme name but as this will
+# be merged with user data, some kind of prefix or nesting is preferable
+# Use snake_casing to be consistent with the rest of Zola
+[extra]
+
+# The theme author info: you!
+[author]
+name = "Saptak S"
+homepage = "https://saptaks.website"

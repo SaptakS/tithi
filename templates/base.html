@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{%- extends "tithi-basic/templates/base.html" -%}
+  
+{% block title %}Tithi - A Static Calendar{% endblock %}
 
-<head>
-  <meta charset="utf-8">
-  <title>Tithi - A Static Calendar</title>
-  <link rel="stylesheet" href="{{ get_url(path="styles.css", trailing_slash=false) }}">
-</head>
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ get_url(path="tithi.css", trailing_slash=false) }}">
+{% endblock %}
 
-<body>
-  <section class="section">
-    <div class="container">
-      {%- block content -%} {%- endblock -%}
-    </div>
-  </section>
+{%- block content -%}
+<section class="section tithi-section">
+  <div class="container">
+    {% block template_content %}
+    {%- endblock -%}
+  </div>
+</section>
+{%- endblock -%}
 
+{% block scripts %}
+  {{ super() }}
   <script src="{{ get_url(path="js/month_switch.js", trailing_slash=false) }}"></script>
-</body>
-
-</html>
+{% endblock %}
