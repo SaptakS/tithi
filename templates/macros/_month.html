@@ -1,9 +1,9 @@
 {%- import "macros/_calendar.html" as calendar -%}
-{%- macro monthly_date(month, year) -%}
+{%- macro monthly_date(month, year, events) -%}
 
   {# Contains number_of_days in a month #}
   {%- set start_month = month - 1 -%}
-  {%- set number_of_days = section.extra.number_of_days[start_month] -%}
+  {%- set number_of_days = config.extra.number_of_days[start_month] -%}
   {%- set first_date = year ~ "-" ~ month ~ "-" ~ "01" %}
   
   {# Calculate which day is 1st day of month #}
@@ -11,6 +11,6 @@
     <div class="month" id="cal-{{ first_date | date(format="%Y-%m") }}">
       {% include "includes/_weekdays.html" %}
 
-      {{ calendar::grid(number_of_days=number_of_days, day_of_first=day_of_first, month=month, year=year) }}
+      {{ calendar::grid(number_of_days=number_of_days, day_of_first=day_of_first, month=month, year=year, events=events) }}
     </div>
 {%- endmacro monthly_date -%}

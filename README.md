@@ -74,3 +74,7 @@ So all you need to do is, whichever html template you want your calendar in
 ```
 {{ main::calendar(events=events) }}
 ```
+
+### Can we use data files instead of markdown?
+
+Yesss!! For example, see `templates/data-calendar.html`. It's up to you which way you want to load your events as long as you return an array of events with proper attributes

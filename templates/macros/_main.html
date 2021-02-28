@@ -3,29 +3,33 @@
 
 {%- macro calendar(events) -%}
 
-{# Contains a list of unique YYYY MM combination to get all months #}
-{% set_global year_months = [] %}
-{% for event in events %}
-  {% set year_month = event.date | date(format="%Y-%m") -%}
-  {% if year_month not in year_months %}
-    {% set_global year_months = year_months | concat(with=year_month) %}
-  {% endif %}
-{% endfor %}
+  {% set events_copy = events %}
+
+  {% set events = events | unique(attribute="date") | reverse %}
+
+  {# Contains a list of unique YYYY MM combination to get all months #}
+  {% set_global year_months = [] %}
+  {% for event in events %}
+    {% set year_month = event.date | date(format="%Y-%m") -%}
+    {% if year_month not in year_months %}
+      {% set_global year_months = year_months | concat(with=year_month) %}
+    {% endif %}
+  {% endfor %}
 
 
-{# Show the month and year with dropdown selector #}
-{%- set first_date = year_months[0] ~ "-" ~ "01" %}
+  {# Show the month and year with dropdown selector #}
+  {%- set first_date = year_months[0] ~ "-" ~ "01" %}
 
-<section class="calendar">
-  {{ dropdown::month_dropdown(first_date=first_date, year_months=year_months) }}
-  <div class="calendar-container">
-    {% for year_month in year_months -%}
-      {%- set year_index = year_month | split(pat="-") | first | int -%}
-      {%- set month_index = year_month | split(pat="-") | last | int %}
-      {{ month::monthly_date(month=month_index, year=year_index) }}
-    {% endfor %}
-  </div>
+  <section class="calendar">
+    {{ dropdown::month_dropdown(first_date=first_date, year_months=year_months) }}
+    <div class="calendar-container">
+      {% for year_month in year_months -%}
+        {%- set year_index = year_month | split(pat="-") | first | int -%}
+        {%- set month_index = year_month | split(pat="-") | last | int %}
+        {{ month::monthly_date(month=month_index, year=year_index, events=events_copy) }}
+      {% endfor %}
+    </div>
 
-</section>
+  </section>
 
 {% endmacro calendar %}

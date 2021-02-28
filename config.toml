@@ -20,3 +20,4 @@ highlight_code = false
 
 [extra]
 # Put all your custom variables here
+number_of_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]

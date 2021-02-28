@@ -4,7 +4,8 @@
 
 {%- block template_content -%}
   {# Get calendar events filtered by show_in_calendar #}
-  {%- set events = section.pages | filter(attribute="extra.show_in_calendar", value=true)  -%}
+  {%- set data = load_data(path="data/calendar_events.toml")  -%}
+  {%- set events = data.events -%}
 
   {{ main::calendar(events=events) }}
 

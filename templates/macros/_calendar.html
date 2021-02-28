@@ -1,5 +1,5 @@
 {%- import "macros/_event.html" as event -%}
-{%- macro grid(number_of_days, day_of_first, month, year) -%}
+{%- macro grid(number_of_days, day_of_first, month, year, events) -%}
 
   <div class="month-container">
     {# Offset days before the 1st date of month #}
@@ -12,7 +12,7 @@
       {%- set date = year ~ "-" ~ month ~ "-" ~ day %}
       <div class="date-container">
         <p class="date">{{ date | date(format="%e") }}</p>
-        {{ event::container(date=date) }}
+        {{ event::container(date=date, events=events) }}
       </div>
     {%- endfor -%}
   </div>

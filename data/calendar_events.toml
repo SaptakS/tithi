@@ -1,0 +1,11 @@
+[[events]]
+title = "Data Event 1 with time"
+date = 2021-10-02T15:00:00Z
+content = "<p>This is the content of event created with yml file</p>"
+extra.show_in_calendar = true
+
+[[events]]
+title = "Data Event 2 with time"
+date = 2021-10-05T10:00:00Z
+content = "This is the content of event created with yml file"
+extra.show_in_calendar = true
